@@ -7,17 +7,10 @@ import java.awt.event.KeyListener;
 
 public class Panel extends JPanel implements KeyListener
 {
-    private int deltaX = 0, deltaY = 0;
-    public void moveX(int value)
-    {
-        deltaX+=value;
-        repaint();
-    }
-    public void moveY(int value)
-    {
-        deltaY+=value;
-        repaint();
-    }
+    public int choice = 0;
+    public String[] tekst = {"Attack","Defend", "Items", "Run",""};
+    public JLabel label1 = new JLabel();
+
     public Panel()
     {
         this.addKeyListener(this);
@@ -28,7 +21,10 @@ public class Panel extends JPanel implements KeyListener
     {
         super.paintComponent(graphics);
 
-        graphics.fillRect(200+deltaX,200+deltaY,50,50);
+        graphics.fillRect(100,200,50,50);
+        graphics.fillRect(300,200,50,50);
+        label1.setText(tekst[choice]);
+        repaint();
     }
 
     @Override
@@ -41,16 +37,22 @@ public class Panel extends JPanel implements KeyListener
         switch (key)
         {
             case KeyEvent.VK_UP:
-                moveY(-5);
+                if(choice<3)
+                {
+                    choice++;
+                } else
+                {
+                    choice=0;
+                }
                 break;
             case KeyEvent.VK_DOWN:
-                moveY(5);
-                break;
-            case KeyEvent.VK_LEFT:
-                moveX(-5);
-                break;
-            case KeyEvent.VK_RIGHT:
-                moveX(5);
+                if(choice>0)
+                {
+                    choice--;
+                } else
+                {
+                    choice=3;
+                }
                 break;
         }
 
