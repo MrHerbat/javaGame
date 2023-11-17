@@ -9,6 +9,8 @@ public class Panel extends JPanel implements KeyListener
 {
     public int choice = 0;
     public String[] tekst = {"Attack","Defend", "Items", "Run",""};
+    private int frames;
+    private long lastCheck = 0;
     public JLabel label1 = new JLabel();
 
     public Panel()
@@ -24,6 +26,16 @@ public class Panel extends JPanel implements KeyListener
         graphics.fillRect(100,200,50,50);
         graphics.fillRect(300,200,50,50);
         label1.setText(tekst[choice]);
+
+
+        frames++;
+        if(System.currentTimeMillis() - lastCheck >= 1000)
+        {
+            lastCheck = System.currentTimeMillis();
+            System.out.println("FPS: "+frames);
+            frames=0;
+        }
+
         repaint();
     }
 
