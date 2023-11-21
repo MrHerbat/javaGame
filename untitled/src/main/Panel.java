@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Panel extends JPanel
 {
-    public int choice = 0, cChoice=0;
+    public byte choice = 0, cChoice=0;
     public String[] tekst = {"Attack","Defend", "Items", "Run"};
     public JLabel label1 = new JLabel();
     private Color[] color = {new Color(0,0,0),new Color(127,50,50)};
