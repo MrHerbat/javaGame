@@ -11,10 +11,9 @@ public class Window
 
         jframe = new JFrame("gra");
         jframe.setSize(500,500);
-        jframe.setLocationRelativeTo(null);
-        panel.add(panel.label1);
         jframe.add(panel);
-
+        jframe.setResizable(false);
+        jframe.pack();
         jframe.setVisible(true);
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
