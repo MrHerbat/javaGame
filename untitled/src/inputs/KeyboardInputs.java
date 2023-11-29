@@ -23,27 +23,46 @@ public class KeyboardInputs implements KeyListener {
             case KeyEvent.VK_UP:
                 if(panel.choice<3)
                 {
-                    panel.choice++;
+                    if(!panel.hit)
+                    {
+                        panel.choice++;
+                        panel.loop = 1;
+                    }
                 } else
                 {
-                    panel.choice=0;
+                    if(!panel.hit)
+                    {
+                        panel.choice=0;
+                        panel.loop = 1;
+                    }
                 }
                 break;
             case KeyEvent.VK_DOWN:
                 if(panel.choice>0)
                 {
-                    panel.choice--;
+                    if(!panel.hit)
+                    {
+                        panel.choice--;
+                        panel.loop = 1;
+                    }
+
                 } else
                 {
-                    panel.choice=3;
+                    if(!panel.hit)
+                    {
+                        panel.choice=3;
+                        panel.loop = 1;
+                    }
                 }
                 break;
             case KeyEvent.VK_ENTER:
                 if(panel.choice == 0)
                 {
-                    panel.cChoice = 1;
-                }else{
-                    panel.cChoice = 0;
+                    if(!panel.hit)
+                    {
+                        panel.hit = true;
+                    }
+
                 }
                 break;
         }
